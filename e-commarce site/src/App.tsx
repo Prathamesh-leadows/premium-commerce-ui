@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import Products from "./pages/Products";
 import Deals from "./pages/Deals";
@@ -13,7 +13,7 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <CartProvider>
-      <BrowserRouter basename="/premium-commerce-ui">
+      <BrowserRouter>
         <div className="flex flex-col min-h-screen">
           <Navbar />
           <main className="flex-grow pt-16">
@@ -24,6 +24,8 @@ function App() {
               <Route path="/cart" element={<Cart />} />
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/account" element={<Account />} />
+              {/* Fallback route - Redirect any unknown URL to Home Page */}
+              <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </main>
           <Footer />
