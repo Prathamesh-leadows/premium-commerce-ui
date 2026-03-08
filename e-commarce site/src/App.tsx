@@ -13,7 +13,7 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <CartProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/premium-commerce-ui">
         <div className="flex flex-col min-h-screen">
           <Navbar />
           <main className="flex-grow pt-16">
